@@ -44,12 +44,13 @@ int main(void) {
     int dice2 = rand() % 6 + 1;
     int dice3 = rand() % 6 + 1;
     int dice4 = rand() % 6 + 1;
-    printf("骰子： %d %d %d %d\n", dice1, dice2, dice3, dice4);
+    printf("骰子： %d %d %d %d\n", dice1, dice2, dice3, dice4); // 显示盘面点
     int display[4] = {dice1, dice2, dice3, dice4}; 
     
-
+    // 最小化排序
     qsort(display, 4, sizeof(int), cmpfunc); 
 
+    // 
     value = 1000 * display[0] + 100 * display[1] + 10 * display[2] + display[3];
     
   /*printf("value = %d\n", value);
@@ -57,18 +58,23 @@ int main(void) {
     printf("display[1] = %d\n", display[1]);
     printf("display[2] = %d\n", display[2]);
     printf("display[3] = %d\n", display[3]); */
-    
+    int meet = 0; // 判断盘面点是否属于六十二谱
     for (int i = 0; i < sizeof(points) / sizeof(points[0]); i++) {
-        if (points[i] == value) { 
+        
+        if (points[i] == value) {
+            meet = 1; 
             printf("名称： %s\n", name[i]);            
             printf("雅名： %s\n", alias[i]);
             printf("归类： %s\n", category[i]);            
             //printf("赏罚： %s\n", reward[i]);
             return 0;
         }
-           // puts("无赏罚色，请重新掷骰子！");
-            
-
+    }
+    
+    if (meet == 0) {
+            puts("无赏罚色，请重新掷骰子！");
+            return 0;
     }    
+ 
     return 0;
 }
