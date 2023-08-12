@@ -22,7 +22,7 @@
  * experiences with one another.
  *  
  * main.c 
- * Last edited: 2023/8/7
+ * Last edited: 2023/8/12
  ******************************************************************************/
 
 #include <stdio.h>
@@ -40,12 +40,12 @@ int main(void) {
     srand((unsigned)time(NULL));
 
 
-    int dice1 = rand() % 6 + 1;
-    int dice2 = rand() % 6 + 1;
-    int dice3 = rand() % 6 + 1;
-    int dice4 = rand() % 6 + 1;
-    printf("骰子： %d %d %d %d\n", dice1, dice2, dice3, dice4); // 显示盘面点
-    int display[4] = {dice1, dice2, dice3, dice4}; 
+    int die1 = rand() % 6 + 1;
+    int die2 = rand() % 6 + 1;
+    int die3 = rand() % 6 + 1;
+    int die4 = rand() % 6 + 1;
+    printf("骰子： %d %d %d %d\n", die1, die2, die3, die4); // 显示盘面点
+    int display[4] = {die1, die2, die3, die4}; 
     
     // 最小化排序
     qsort(display, 4, sizeof(int), cmpfunc); 
@@ -72,8 +72,8 @@ int main(void) {
     }
     
     if (meet == 0) {
-            puts("无赏罚色，请重新掷骰子！");
-            return 0;
+        puts("无赏罚色，请重新掷骰子！");
+        return 0;
     }    
  
     return 0;
