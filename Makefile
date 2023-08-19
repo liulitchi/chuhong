@@ -37,4 +37,4 @@ main: main.c
 
 	
 clean:
-	rm *.o main
+	rm main
